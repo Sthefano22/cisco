@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -58,6 +59,60 @@
     
     .text-gray-600 {
       color: #4b5563;
+    }
+
+    /* Estilos para productos relacionados */
+    .product-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Estilos para mejorar la visualización de imágenes */
+    .product-image {
+      max-height: 400px;
+      object-fit: contain;
+    }
+    
+    /* Estilo para el modal de imagen */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+    }
+    
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin-top: 2%;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    /* Estilo para limitar líneas de texto */
+    .line-clamp-2 {
+      display: -webkit-box;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -343,15 +398,15 @@
                     <!-- Miniaturas -->
                     <div class="flex gap-3 mt-4 justify-center">
                       <div class="w-20 h-20 border rounded p-1 cursor-pointer hover:border-blue-400 transition">
-                        <img src="https://serviciosconfortperu.com/wp-content/uploads/2024/10/1859345-2.jpg.webp"
+                        <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
                           alt="Vista 1 del cable UTP AMP Categoria 6" class="w-full h-full object-contain" onclick="toExchangeImage(this)" />
                       </div>
                       <div class="w-20 h-20 border rounded p-1 cursor-pointer hover:border-blue-400 transition">
-                        <img src="https://serviciosconfortperu.com/wp-content/uploads/2024/10/1859345-2.jpg.webp"
+                        <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
                           alt="Vista 2 del cable UTP AMP Categoria 6" class="w-full h-full object-contain" onclick="toExchangeImage(this)" />
                       </div>
                       <div class="w-20 h-20 border rounded p-1 cursor-pointer hover:border-blue-400 transition">
-                        <img src="https://serviciosconfortperu.com/wp-content/uploads/2024/10/1859345-2.jpg.webp"
+                        <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
                           alt="Vista 3 del cable UTP AMP Categoria 6" class="w-full h-full object-contain" onclick="toExchangeImage(this)" />
                       </div>
                     </div>
@@ -421,7 +476,7 @@
                       </h2>
                       <div class="flex flex-wrap gap-3">
                         <!-- Ficha técnica PDF -->
-                        <a href="#"
+                        <a href="https://www.ds3comunicaciones.com/AMP/pdf/6-1427200-4.pdf"
                           class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition focus-visible"
                           target="_blank" rel="noopener noreferrer" aria-label="Descargar ficha técnica en PDF">
                           <i class="fas fa-file-pdf text-red-500" aria-hidden="true"></i>
@@ -429,15 +484,15 @@
                         </a>
 
                         <!-- Manual PDF -->
-                        <a href="#"
+                        <a href="https://www.ds3comunicaciones.com/AMP/pdf/6-1427200-4-manual.pdf"
                           class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition focus-visible"
                           target="_blank" rel="noopener noreferrer" aria-label="Descargar manual en PDF">
                           <i class="fas fa-book-open text-blue-500" aria-hidden="true"></i>
                           <span>Manual</span>
                         </a>
 
-                        <!-- Especificaciones PDF  a -->
-                        <a href="#"
+                        <!-- Especificaciones PDF -->
+                        <a href="https://www.ds3comunicaciones.com/AMP/pdf/6-1427200-4-especificaciones.pdf"
                           class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition focus-visible"
                           target="_blank" rel="noopener noreferrer" aria-label="Descargar especificaciones en PDF">
                           <i class="fas fa-file-alt text-green-500" aria-hidden="true"></i>
@@ -866,55 +921,164 @@
     </div>
   </main>
 
-  <!-- Características destacadas -->
-  <section class="py-12 bg-gradient-to-r from-blue-50 to-indigo-50" aria-labelledby="caracteristicas-destacadas">
-    <div class="container mx-auto px-4">
-      <h2 id="caracteristicas-destacadas" class="text-3xl font-bold text-center text-gray-800 mb-12">Características Destacadas</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="feature-card bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="feature-icon text-blue-600 text-4xl mb-4" aria-hidden="true">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Alto Rendimiento</h3>
-          <p class="text-gray-600">Soporta velocidades de hasta 1 Gbps con un ancho de banda de 250 MHz para aplicaciones exigentes.</p>
+  <!-- SECCIÓN TAMBIÉN DISPONIBLE - MEJORADA -->
+  <section class="py-8 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Encabezado -->
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-white bg-[#049FD9] py-4 px-6 rounded-lg shadow-md inline-block">
+            También Disponible: Cables de Red Cat 6 y Cat 6A
+          </h2>
         </div>
-        <div class="feature-card bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="feature-icon text-blue-600 text-4xl mb-4" aria-hidden="true">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Chaqueta CMR</h3>
-          <p class="text-gray-600">Chaqueta resistente al fuego clasificada CMR para instalaciones verticales en edificios.</p>
-        </div>
-        <div class="feature-card bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="feature-icon text-blue-600 text-4xl mb-4" aria-hidden="true">
-            <i class="fas fa-certificate"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Calidad AMP</h3>
-          <p class="text-gray-600">Fabricado por AMP, líder mundial en componentes de conectividad y cableado estructurado.</p>
-        </div>
-        <div class="feature-card bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="feature-icon text-blue-600 text-4xl mb-4" aria-hidden="true">
-            <i class="fas fa-tachometer-alt"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">23 AWG</h3>
-          <p class="text-gray-600">Calibre 23 AWG para una mejor conductividad y menor atenuación de señal.</p>
-        </div>
-        <div class="feature-card bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="feature-icon text-blue-600 text-4xl mb-4" aria-hidden="true">
-            <i class="fas fa-plug"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Compatibilidad</h3>
-          <p class="text-gray-600">Compatible con conectores RJ45 estándar y sistemas de cableado estructurado.</p>
-        </div>
-        <div class="feature-card bg-white rounded-lg shadow-md p-6 text-center">
-          <div class="feature-icon text-blue-600 text-4xl mb-4" aria-hidden="true">
-            <i class="fas fa-award"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Garantía de Calidad</h3>
-          <p class="text-gray-600">Cumple con los estándares internacionales de calidad y rendimiento.</p>
+
+        <!-- Grid de productos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Producto 1 -->
+          <a href="https://www.ds3comunicaciones.com/AMP/1859345-2.html"
+            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
+            <div class="p-5 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-4 h-40">
+                <img src="https://www.ds3comunicaciones.com/AMP/images/Caja.jpg"
+                  alt="1859345-2"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="flex justify-between flex-col items-center mb-2">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    1859345-2
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
+                  Cable UTP AMP Categoria 6 Chaqueta LSZH 1859345-2
+                </p>
+                <div class="text-center mt-6 text-blue-600 font-semibold">
+                  Ver Producto
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- Producto 2 -->
+          <a href="https://www.ds3comunicaciones.com/AMP/1427254-4.html"
+            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
+            <div class="p-5 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-4 h-40">
+                <img src="https://www.ds3comunicaciones.com/AMP/images/1427254-4-1.jpg"
+                  alt="142725-4"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="flex justify-between flex-col items-center mb-2">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    142725-4
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
+                  Cable UTP AMP Categoría 6 Chaqueta CM 23 AWG 142725-4
+                </p>
+                <div class="text-center mt-6 text-blue-600 font-semibold">
+                  Ver Producto
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- Producto 3 -->
+          <a href="https://www.ds3comunicaciones.com/AMP/219585-2.html"
+            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
+            <div class="p-5 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-4 h-40">
+                <img src="https://www.ds3comunicaciones.com/AMP/images/219585-2_front.jpg"
+                  alt="219585-2"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="flex justify-between flex-col items-center mb-2">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    219585-2
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
+                  Rollo de 305 metros Cable UTP Cat 6 de 23 AWG, CHAQUETA LSZH marca AMP - MODELO: 219585-2
+                </p>
+                <div class="text-center mt-6 text-blue-600 font-semibold">
+                  Ver Producto
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- Producto 4 -->
+          <a href="https://www.ds3comunicaciones.com/AMP/1859218-2.html"
+            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
+            <div class="p-5 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-4 h-40">
+                <img src="https://www.ds3comunicaciones.com/AMP/images/1859218-2.jpg"
+                  alt="1859218-2"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="flex justify-between flex-col items-center mb-2">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    1859218-2
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
+                  Cable UTP AMP Categoria 6A Apantallado Chaqueta LSZH 1859218-2
+                </p>
+                <div class="text-center mt-6 text-blue-600 font-semibold">
+                  Ver Producto
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- Producto 5 -->
+          <a href="https://www.ds3comunicaciones.com/AMP/1859381-2.html"
+            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
+            <div class="p-5 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-4 h-40">
+                <img src="https://www.ds3comunicaciones.com/AMP/images/Caja.jpg"
+                  alt="1859381-2"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="flex justify-between flex-col items-center mb-2">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    1859381-2
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
+                  Cable UTP AMP Categoria 6A Chaqueta LSZH IEC-60332-3  1859345-2
+                </p>
+                <div class="text-center mt-6 text-blue-600 font-semibold">
+                  Ver Producto
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- Producto 6 -->
+          <a href="https://www.ds3comunicaciones.com/AMP/6-1427200-4.html"
+            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
+            <div class="p-5 flex flex-col h-full">
+              <div class="flex-grow flex items-center justify-center mb-4 h-40">
+                <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
+                  alt="6-1427200-4"
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div class="border-t pt-4">
+                <div class="flex justify-between flex-col items-center mb-2">
+                  <h3 class="text-lg font-bold text-gray-800">
+                    6-1427200-4
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
+                  Cable UTP AMP Categoria 6 Chaqueta CMR 23AWG 6-1427200-4
+                </p>
+                <div class="text-center mt-6 text-blue-600 font-semibold">
+                  Ver Producto
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- FOOTER -->
@@ -929,12 +1093,12 @@
           <div class="space-y-2">
             <h3 class="text-lg font-bold text-gray-800">Redes Sociales</h3>
             <div class="flex space-x-4">
-              <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors focus-visible" aria-label="Facebook">
-                <i class="fab fa-facebook-f text-xl" aria-hidden="true"></i>
+              <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">
+                <i class="fab fa-facebook-f text-xl"></i>
               </a>
               <a href="https://wa.me/994428965?text=Hola nesecito ayuda" target="_blank"
-                class="text-gray-600 hover:text-green-600 transition-colors focus-visible" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp text-xl" aria-hidden="true"></i>
+                class="text-gray-600 hover:text-green-600 transition-colors">
+                <i class="fab fa-whatsapp text-xl"></i>
               </a>
             </div>
           </div>
@@ -942,8 +1106,8 @@
           <div class="space-y-2">
             <h3 class="text-lg font-bold text-gray-800">Correo</h3>
             <a href="mailto:netperu100@hotmail.com"
-              class="flex items-center text-gray-600 hover:text-blue-600 transition-colors focus-visible">
-              <i class="fas fa-envelope mr-2" aria-hidden="true"></i>
+              class="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+              <i class="fas fa-envelope mr-2"></i>
               netperu100@hotmail.com
             </a>
           </div>
@@ -955,37 +1119,37 @@
           <ul class="space-y-2">
             <li>
               <a href="https://www.ds3comunicaciones.com/l-com/AccessPoint.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Access Point
               </a>
             </li>
             <li>
               <a href="https://www.ds3comunicaciones.com/lcom/AntenasMIMO.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Antenas MIMO
               </a>
             </li>
             <li>
               <a href="https://www.ds3comunicaciones.com/l-com/AntenasPanel.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Antenas de Panel
               </a>
             </li>
             <li>
               <a href="https://www.ds3comunicaciones.com/l-com/AntenaSectorial.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Antenas Sectoriales
               </a>
             </li>
             <li>
               <a href="https://ds3comunicaciones.com/l-com/pigtail/Pigtail.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Cable Pigtail
               </a>
             </li>
             <li>
               <a href="https://www.ds3comunicaciones.com/trendnet/MediaConvert.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Media Converter
               </a>
             </li>
@@ -998,13 +1162,13 @@
           <ul class="space-y-2">
             <li>
               <a href="https://www.ds3comunicaciones.com/soporte.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Soporte Técnico
               </a>
             </li>
             <li>
               <a href="https://ds3comunicaciones.com/us.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors focus-visible">
+                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
                 Acerca de Nosotros
               </a>
             </li>
@@ -1016,13 +1180,13 @@
           <h3 class="text-lg font-bold text-gray-800">Contacto</h3>
           <div class="space-y-3">
             <a href="https://wa.me/994428965?text=Hola nesecito ayuda" target="_blank"
-              class="flex items-center text-gray-600 hover:text-green-600 transition-colors focus-visible">
-              <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>
+              class="flex items-center text-gray-600 hover:text-green-600 transition-colors">
+              <i class="fas fa-phone-alt mr-2"></i>
               <span>994 428 965</span>
             </a>
             <a href="https://wa.me/996533223?text=Hola nesecito ayuda" target="_blank"
-              class="flex items-center text-gray-600 hover:text-green-600 transition-colors focus-visible">
-              <i class="fas fa-phone-alt mr-2" aria-hidden="true"></i>
+              class="flex items-center text-gray-600 hover:text-green-600 transition-colors">
+              <i class="fas fa-phone-alt mr-2"></i>
               <span>996 533 223</span>
             </a>
           </div>
@@ -1043,8 +1207,8 @@
       </div>
     </div>
   </footer>
-  
   <!-- CARGA DE JAVASCRIPT  SECUNDARIA-->
   <script src="./js/change_tabs.js"></script>
 </body>
+
 </html>
